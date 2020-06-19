@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>ESCAPE FROM ALIENS IN OUTER SPACE</title>
+		<style type="text/css">
+			.invisible {
+				display: none;
+			}
+			* {
+				font-size: 16px;
+			}
+		</style>
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, width=device-width, user-scalable=no" />
+	</head>
+	<body onload='loadBody()'>
+		<div id='infoDiv'>
+			<h1>Escape from Aliens in Outer Space</h1>
+			<p>A game by <a href='https://www.santaragione.com/'>Santa Ragione</a></p>
+			<p>Published by <a href='https://ospreypublishing.com/'>Osprey Games</a></p>
+			<p><a href='http://www.eftaios.com/index.html'>Ultimate Edition</a> availble for Print and Play</p>
+			<p>Implemented for remote play by Chris "Turd Boomerang" Armstrong</p>
+			<p>Note: This version only supports the basic game. Support for items and unique roles is coming soon!</p>
+		</div>
+		<div id='setupDiv'>
+			<p>
+				<label for='numPlayers'>Number of Players (2-8):</label>
+				<input type='number' id='numPlayers' min='2' max='8' value='2' onchange='numPlayersChange()'>
+			</p>
+			<p>
+				<label for='currentPlayerNum'>Your Player Number:</label>
+				<input type='number' id='currentPlayerNum' min='1' max='2' value='1' onchange='currentPlayerChange()'>
+			</p>
+			<p>
+				<label for='gameCode'>Game Code (random 6-digit number, shared by ALL players)</label>
+				<input type='number' id='gameCode' min='100000' max='999999' onchange='gameCodeChange()'>
+			</p>
+			<p>
+				<button onclick="submitButton()">Start Game</button>
+			</p>
+			<p id='warningText' style='color:red'></p>
+		</div>
+		<div id='gameDiv' class='invisible'>
+			<div id='playerInfoDiv'></div>
+			<div id='DangerousSectorDiv'>
+				<button onclick='drawDangerCard()'>Draw a Dangerous Sector Card</button>
+				<p id='dangerInfo'></p>
+				<button onclick='hideDangerInfo()'>Discard Dangerous Sector Card</button>
+			</div>
+			<div id='escapeHatchDiv'>
+				<p>To open an escape hatch, type <i>Open Escape Hatch #X</i> in the box below, where X is 1, 2, 3, or 4:</p>
+				<input id="escapeHatchInfoDiv"></input>
+				<button onclick="openEscapeHatch()">Submit</button>
+				<p id='escapeHatchResultP'></p>
+			</div>
+		</div>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" type="text/javascript"></script>
+		<script src="game.js" type="text/javascript"></script>
+		<script src="setup.js" type="text/javascript"></script>
+		<script src="random.js" type="text/javascript"></script>
+		<script src="info.js" type="text/javascript"></script>
+	</body>
+</html>
